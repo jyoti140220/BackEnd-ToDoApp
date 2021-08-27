@@ -3,6 +3,7 @@ const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
 const jwttoken=require('../middleware/jwt.js')
 
+
 const login = async (req, res) => {
     const reqdata=req.body
     const data=await knex.from('users').select('*').where('email',reqdata.email)
