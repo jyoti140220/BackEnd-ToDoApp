@@ -13,7 +13,13 @@ knex.schema.createTableIfNotExists('users',(table)=>{
 knex.schema.createTableIfNotExists('cities',(table)=>{
     table.increments('id');
     table.string('name');
-}).then(()=>{console.log("table createdm.....")}).catch((err)=>{console.log(err)})
+}).then(()=>{console.log("table createdd.....")}).catch((err)=>{console.log(err)})
+
+knex.schema.createTableIfNotExists('todo',(table)=>{
+    table.string('text');
+    table.integer('assignedTo');
+    table.date('dueDate')
+}).then(()=>{console.log("Table Created...")}).catch((err)=>{console.log(err)})
 
 
 
