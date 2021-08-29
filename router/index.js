@@ -7,8 +7,7 @@ router.use('/city',require('./city.router.js'))
 router.use('/users',require('./getAllUser.router.js'))
 router.use('/todo',require('./todo.router.js'))
 router.use('/mytodo',require('./getMyToDo.router.js'))
-
-
+router.use('/usersbyfilter',require('./filtration.router.js'))
 
 module.exports=router
 

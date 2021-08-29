@@ -23,5 +23,14 @@ knex.schema.createTableIfNotExists('todo',(table)=>{
 
 
 
+knex.schema.createTableIfNotExists('filtration',(table)=>{
+    table.increments('id');
+    table.integer('ageMoreThan').notNullable().defaultTo('0')
+    table.integer('ageLessThan').notNullable().defaultTo('999')
+    table.integer('cityId').notNullable().defaultTo('0')
+}).then(()=>{console.log("filtration table create..")}).catch((err)=>{console.log(err)})
+
+
+
 
 module.exports=knex

@@ -2,7 +2,7 @@ const knex=require('../modal/userdetials.js')
 
 const getMyToDo=async(req,res)=>{
     var array=[]
-    await knex.from('todo').select('todo.text','users.id','users.name','users.email','cities.id as Id','cities.name as Name','todo.dueDate')
+    await knex.from('todo').select('todo.text','users.id','users.name','users.email','users.age','cities.id as Id','cities.name as Name','todo.dueDate')
     .join('users','users.id','=','todo.assignedTo')
     .join('cities','cities.id','=','users.cityId').then((datas)=>{
         datas.forEach(data => {
@@ -10,6 +10,7 @@ const getMyToDo=async(req,res)=>{
                     id: data.id,
                     name:data.name,
                     email:data.email,
+                    age:data.age,
                     city:{name:data.Name,id:data.Id}
                 },
                 dueDate: data.dueDate}
